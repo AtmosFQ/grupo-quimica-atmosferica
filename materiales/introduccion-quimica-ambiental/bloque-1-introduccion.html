@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="slides-format" content="viewport">
+<title>Bloque 1: Introducción — Química Ambiental</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,600;7..72,700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<style type="text/tailwindcss">
+@theme {
+  --color-bg: #fefcf8;
+  --color-bg-deep: #f5f1e8;
+  --color-surface: #f3efe6;
+  --color-text: #1e293b;
+  --color-text-secondary: #475569;
+  --color-text-muted: #6b7280;
+  --color-accent-1: #1e293b;
+  --color-accent-2: #c2410c;
+  --color-accent-3: #65713a;
+  --color-glass-bg: rgba(255,255,255,0.9);
+  --color-glass-border: rgba(0,0,0,0.08);
+  --color-vignette: rgba(0,0,0,0.05);
+  --font-display: 'Literata', serif;
+  --font-body: 'Source Sans 3', sans-serif;
+}
+</style>
+<style>
+:root { --color-bg: #fefcf8; --color-text: #1e293b; --glow-color-rgb: 194,65,12; }
+*,*::before,*::after{box-sizing:border-box;}
+html,body{background:var(--color-bg);margin:0;}
+body{font-family:var(--font-body);color:var(--color-text);overflow:hidden;height:100vh;width:100vw;}
+.deck{width:100vw;height:100vh;position:relative;}
+.slide{position:absolute;top:0;left:0;width:100%;height:100%;background:var(--color-bg);display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;transform:scale(0.95);transition:opacity .7s ease,transform .7s ease;pointer-events:none;overflow:hidden;}
+.slide.active{opacity:1;transform:scale(1);pointer-events:all;}
+.slide>.content{position:relative;z-index:2;width:100%;max-width:1150px;padding:clamp(1.5rem,4vw,4rem);}
+.nav-controls{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:12px;z-index:100;background:var(--color-glass-bg);backdrop-filter:blur(10px);padding:8px 20px;border-radius:40px;border:1px solid var(--color-glass-border);max-width:90vw;}
+.nav-btn{width:36px;height:36px;border:none;background:var(--color-glass-bg);color:var(--color-accent-2);border-radius:50%;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .3s;flex-shrink:0;}
+.nav-btn:hover{background:var(--color-glass-border);}
+.slide-dots{display:flex;gap:5px;flex-wrap:wrap;max-width:50vw;overflow-x:auto;}
+.slide-dots .dot{width:7px;height:7px;border-radius:50%;background:var(--color-glass-border);cursor:pointer;transition:background .3s,transform .3s;flex-shrink:0;}
+.slide-dots .dot.active{background:var(--color-accent-2);transform:scale(1.3);}
+.slide-counter{font-size:.75rem;color:var(--color-text-muted);min-width:44px;text-align:center;flex-shrink:0;}
+.reveal{opacity:0;transform:translateY(20px);}
+@keyframes float-slow{0%{transform:translate(0,0) scale(1);}25%{transform:translate(40px,-30px) scale(1.08);}50%{transform:translate(-30px,30px) scale(.92);}75%{transform:translate(30px,15px) scale(1.05);}100%{transform:translate(0,0) scale(1);}}
+.gradient-mesh{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;}
+.blob{position:absolute;border-radius:50%;filter:blur(80px);animation:float-slow 14s ease-in-out infinite;}
+.slide::after{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse at center, transparent 55%, var(--color-vignette) 100%);}
+.card{background:var(--color-glass-bg);border:1px solid var(--color-glass-border);border-radius:14px;box-shadow:0 4px 14px rgba(0,0,0,0.05);transition:transform .3s, box-shadow .3s;}
+.card:hover{transform:translateY(-4px);box-shadow:0 10px 22px rgba(0,0,0,0.08);}
+.cite{font-size:.72rem;color:var(--color-text-muted);}
+.cite a{color:var(--color-accent-2);text-decoration:underline;}
+.src{font-size:.68rem;color:var(--color-accent-2);text-decoration:underline;}
+.tag{display:inline-block;font-size:.65rem;text-transform:uppercase;letter-spacing:.08em;color:var(--color-accent-2);background:rgba(194,65,12,0.08);padding:3px 10px;border-radius:20px;}
+</style>
+</head>
+<body>
+<div class="mouse-spotlight" style="position:fixed;inset:0;z-index:99;pointer-events:none;"></div>
+<div class="deck">
+
+<div class="slide slide-1 active" data-slide="1">
+  <div class="gradient-mesh">
+    <div class="blob" style="width:450px;height:450px;top:-100px;right:-100px;background:var(--color-accent-2);opacity:.12;"></div>
+    <div class="blob" style="width:300px;height:300px;bottom:-80px;left:-60px;background:var(--color-accent-3);opacity:.10;"></div>
+  </div>
+  <div class="content text-center">
+    <div class="text-[100px] mb-4 reveal">🌎</div>
+    <h1 class="font-display text-[clamp(2.2rem,5vw,4rem)] font-bold text-accent-1 tracking-tight mb-3 reveal">Bloque 1: Introducción</h1>
+    <p class="text-[clamp(0.85rem,1.3vw,1.2rem)] font-light text-text-muted tracking-[4px] uppercase reveal">Introducción a la Química Ambiental · 18 de agosto – 3 de septiembre de 2026</p>
+    <p class="mt-4 text-sm text-text-secondary reveal">Ecosistemas · Ciclos biogeoquímicos · Contaminación · Mitigación · Normatividad</p>
+  </div>
+</div>
+
+<div class="slide slide-2" data-slide="2">
+  <div class="gradient-mesh"><div class="blob" style="width:280px;height:280px;bottom:-60px;left:-60px;background:var(--color-accent-3);opacity:.08;"></div></div>
+  <div class="content">
+    
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Agenda del Bloque 1</h2>
+    <div class="grid grid-cols-2 gap-4 mt-6"><div class="card p-4 reveal flex items-start gap-3">
+        <div style="min-width:32px;height:32px;border-radius:50%;background:var(--color-accent-2);color:white;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;">1</div>
+        <div><h3 class="font-semibold text-accent-1 text-sm">18 de agosto</h3><p class="text-xs text-text-secondary mt-1">Ecosistemas, química ambiental y esferas terrestres</p></div>
+      </div><div class="card p-4 reveal flex items-start gap-3">
+        <div style="min-width:32px;height:32px;border-radius:50%;background:var(--color-accent-2);color:white;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;">2</div>
+        <div><h3 class="font-semibold text-accent-1 text-sm">20 de agosto</h3><p class="text-xs text-text-secondary mt-1">Equilibrio ecológico: energía y ciclos biogeoquímicos</p></div>
+      </div><div class="card p-4 reveal flex items-start gap-3">
+        <div style="min-width:32px;height:32px;border-radius:50%;background:var(--color-accent-2);color:white;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;">3</div>
+        <div><h3 class="font-semibold text-accent-1 text-sm">25 de agosto</h3><p class="text-xs text-text-secondary mt-1">Contaminación: toxicidad, persistencia y emergentes</p></div>
+      </div><div class="card p-4 reveal flex items-start gap-3">
+        <div style="min-width:32px;height:32px;border-radius:50%;background:var(--color-accent-2);color:white;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;">4</div>
+        <div><h3 class="font-semibold text-accent-1 text-sm">27 de agosto</h3><p class="text-xs text-text-secondary mt-1">Prevención, mitigación y remediación</p></div>
+      </div><div class="card p-4 reveal flex items-start gap-3">
+        <div style="min-width:32px;height:32px;border-radius:50%;background:var(--color-accent-2);color:white;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;">5</div>
+        <div><h3 class="font-semibold text-accent-1 text-sm">1 de septiembre</h3><p class="text-xs text-text-secondary mt-1">Normatividad ambiental mexicana</p></div>
+      </div><div class="card p-4 reveal flex items-start gap-3">
+        <div style="min-width:32px;height:32px;border-radius:50%;background:var(--color-accent-2);color:white;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;">6</div>
+        <div><h3 class="font-semibold text-accent-1 text-sm">3 de septiembre</h3><p class="text-xs text-text-secondary mt-1">Integración y cierre del bloque</p></div>
+      </div></div>
+    <p class="src mt-4 reveal">Plan de trabajo del curso, semestre 2027-1</p>
+  </div>
+</div>
+
+<div class="slide slide-3" data-slide="3">
+  <div class="gradient-mesh"><div class="blob" style="width:260px;height:260px;top:-50px;left:-50px;background:var(--color-accent-2);opacity:.07;"></div></div>
+  <div class="content">
+    <span class="tag reveal">18 de agosto</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Encuadre del curso</h2>
+    <div class="grid grid-cols-2 gap-6 mt-6"><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Objetivo general</h3>
+        <p class="text-sm text-text-secondary">Relacionar los principios de la química con el estudio del ambiente: procesos naturales, dinámica aire–agua–suelo y normatividad vigente.</p>
+      </div><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Evaluación de teoría (60%)</h3>
+        <p class="text-sm text-text-secondary">Promedio de exámenes parciales, tareas y participación; asistencia mínima 80%; sin entregas extemporáneas.</p>
+      </div></div>
+    <p class="src mt-4 reveal">Plan de trabajo del curso, semestre 2027-1</p>
+  </div>
+</div>
+
+<div class="slide slide-4" data-slide="4">
+  <div class="gradient-mesh"><div class="blob" style="width:300px;height:300px;bottom:-70px;right:-70px;background:var(--color-accent-3);opacity:.08;"></div></div>
+  <div class="content">
+    <span class="tag reveal">18 de agosto</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">¿Qué es la química ambiental?</h2>
+    <p class="text-lg text-text-secondary mt-4 reveal">Rama de la ciencia química que estudia las <b>fuentes, reacciones, transporte, efectos y destino</b> de las especies químicas en el agua, el suelo, el aire y los ambientes vivos, así como los efectos de la actividad humana sobre estos procesos.</p><p class="text-lg text-text-secondary mt-4 reveal">Manahan organiza el análisis ambiental en cinco esferas interconectadas: hidrosfera, atmósfera, geosfera, biosfera y antroposfera (correspondiente a la actividad humana).</p>
+    <p class="src mt-4 reveal"><a href="https://www.ndl.ethernet.edu.et/bitstream/123456789/9104/1/Stanley%20E.Manahan_2000.pdf" target="_blank">Manahan, S.E. (2000). Environmental Chemistry, Ch. 1</a></p>
+  </div>
+</div>
+
+<div class="slide slide-5" data-slide="5">
+  <div class="gradient-mesh"><div class="blob" style="width:280px;height:280px;top:-60px;right:-60px;background:var(--color-accent-2);opacity:.07;"></div></div>
+  <div class="content">
+    <span class="tag reveal">18 de agosto</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Importancia de la disciplina</h2>
+    <div class="grid grid-cols-2 gap-6 mt-6"><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Diagnóstico ambiental</h3>
+        <p class="text-sm text-text-secondary">Identifica fuentes de contaminación, comprende su transformación y evalúa su efecto en la salud humana y la biodiversidad.</p>
+      </div><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Base de la química verde</h3>
+        <p class="text-sm text-text-secondary">Sin conocer los procesos ambientales no es posible diseñar procesos que minimicen el impacto de sustancias químicas.</p>
+      </div><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Gestión de políticas públicas</h3>
+        <p class="text-sm text-text-secondary">Sustenta el desarrollo de normatividad, tecnologías limpias y estrategias de remediación.</p>
+      </div><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Sostenibilidad</h3>
+        <p class="text-sm text-text-secondary">Aporta herramientas analíticas para enfrentar el cambio climático y la degradación de recursos naturales.</p>
+      </div></div>
+    <p class="src mt-4 reveal"><a href="https://chem.libretexts.org/Bookshelves/Environmental_Chemistry/Green_Chemistry_and_the_Ten_Commandments_of_Sustainability_(Manahan)/02%3A_Environmental_Chemistry/2.03%3A_What_is_Environmental_Chemistry" target="_blank">Manahan (LibreTexts, 2020)</a> · <a href="https://arabjchem.org/?view-pdf=1&embedded=true&article=f9028d22d4b5a5ce50cb103fc02b97f8tZOJAJeMnF0=" target="_blank">Stanley (2009), Arab J. Chem.</a></p>
+  </div>
+</div>
+
+<div class="slide slide-6" data-slide="6">
+  <div class="gradient-mesh"><div class="blob" style="width:280px;height:280px;bottom:-60px;left:-60px;background:var(--color-accent-3);opacity:.08;"></div></div>
+  <div class="content">
+    <span class="tag reveal">18 de agosto</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Marco de las cinco esferas</h2>
+    <p class="text-lg text-text-secondary mt-4 reveal">Manahan organiza el estudio ambiental en cinco esferas interconectadas; cada una corresponde a un bloque de este curso.</p><div class="grid grid-cols-3 gap-4 mt-6"><div class="card p-4 reveal">
+        <div class="text-2xl mb-1">💨</div>
+        <h3 class="font-semibold text-accent-1 text-sm">Atmósfera</h3>
+        <p class="text-xs text-text-secondary mt-1">Química del aire</p>
+      </div><div class="card p-4 reveal">
+        <div class="text-2xl mb-1">💧</div>
+        <h3 class="font-semibold text-accent-1 text-sm">Hidrosfera</h3>
+        <p class="text-xs text-text-secondary mt-1">Química del agua</p>
+      </div><div class="card p-4 reveal">
+        <div class="text-2xl mb-1">🪨</div>
+        <h3 class="font-semibold text-accent-1 text-sm">Geosfera</h3>
+        <p class="text-xs text-text-secondary mt-1">Química del suelo</p>
+      </div><div class="card p-4 reveal">
+        <div class="text-2xl mb-1">🌱</div>
+        <h3 class="font-semibold text-accent-1 text-sm">Biosfera</h3>
+        <p class="text-xs text-text-secondary mt-1">Ecosistemas y residuos</p>
+      </div><div class="card p-4 reveal">
+        <div class="text-2xl mb-1">🏙️</div>
+        <h3 class="font-semibold text-accent-1 text-sm">Antroposfera</h3>
+        <p class="text-xs text-text-secondary mt-1">Cuidado del ambiente</p>
+      </div></div>
+    <p class="src mt-4 reveal"><a href="https://www.ndl.ethernet.edu.et/bitstream/123456789/9104/1/Stanley%20E.Manahan_2000.pdf" target="_blank">Manahan, S.E. (2000)</a></p>
+  </div>
+</div>
+
+<div class="slide slide-7" data-slide="7">
+  <div class="gradient-mesh"><div class="blob" style="width:260px;height:260px;top:-50px;left:-50px;background:var(--color-accent-2);opacity:.07;"></div></div>
+  <div class="content">
+    <span class="tag reveal">18 de agosto</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">¿Qué es un ecosistema?</h2>
+    <p class="text-lg text-text-secondary mt-4 reveal">Conjunto funcional de organismos que interactúan entre sí y con su entorno físico, en el que la energía fluye y la materia se recicla de forma continua.</p><div class="grid grid-cols-2 gap-6 mt-6"><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Componentes bióticos</h3>
+        <p class="text-sm text-text-secondary">Productores (autótrofos), consumidores (herbívoros, carnívoros, omnívoros) y descomponedores (bacterias, hongos)</p>
+      </div><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Componentes abióticos</h3>
+        <p class="text-sm text-text-secondary">Factores fisicoquímicos: temperatura, luz, pH, disponibilidad de agua y composición mineral del sustrato</p>
+      </div></div>
+    <p class="src mt-4 reveal"><a href="https://ncert.nic.in/textbook/pdf/lebo112.pdf" target="_blank">NCERT, Ecosystem</a> · <a href="https://www.ndl.ethernet.edu.et/bitstream/123456789/9104/1/Stanley%20E.Manahan_2000.pdf" target="_blank">Manahan (2000)</a></p>
+  </div>
+</div>
+
+<div class="slide slide-8" data-slide="8">
+  <div class="gradient-mesh"><div class="blob" style="width:300px;height:300px;bottom:-70px;right:-70px;background:var(--color-accent-3);opacity:.08;"></div></div>
+  <div class="content">
+    <span class="tag reveal">18 de agosto</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Factores bióticos: detalle</h2>
+    <p class="text-lg text-text-secondary mt-4 reveal">Los organismos vivos se clasifican funcionalmente según su papel trófico y su escala de influencia dentro del ecosistema.</p><div class="grid grid-cols-2 gap-6 mt-6"><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Macroflora y macrofauna</h3>
+        <p class="text-sm text-text-secondary">Plantas de gran porte y animales de tamaño considerable que estructuran físicamente el hábitat</p>
+      </div><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Microorganismos</h3>
+        <p class="text-sm text-text-secondary">Bacterias, hongos y protistas presentes en suelo, agua o aire, responsables de la descomposición y el reciclaje de nutrientes</p>
+      </div></div>
+    <p class="src mt-4 reveal"><a href="https://www.ebsco.com/research-starters/biology/biotic-and-abiotic-factors" target="_blank">EBSCO, Biotic and Abiotic Factors (2024)</a></p>
+  </div>
+</div>
+
+<div class="slide slide-9" data-slide="9">
+  <div class="gradient-mesh"><div class="blob" style="width:280px;height:280px;top:-60px;right:-60px;background:var(--color-accent-2);opacity:.07;"></div></div>
+  <div class="content">
+    <span class="tag reveal">18 de agosto</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Factores abióticos: detalle</h2>
+    <p class="text-lg text-text-secondary mt-4 reveal">Componentes no vivos que determinan la distribución, abundancia y fisiología de los organismos en un ecosistema.</p><div class="grid grid-cols-3 gap-4 mt-6"><div class="card p-4 reveal">
+        <div class="text-2xl mb-1">☀️</div>
+        <h3 class="font-semibold text-accent-1 text-sm">Luz</h3>
+        <p class="text-xs text-text-secondary mt-1">Intensidad y fotoperiodo</p>
+      </div><div class="card p-4 reveal">
+        <div class="text-2xl mb-1">🌡️</div>
+        <h3 class="font-semibold text-accent-1 text-sm">Temperatura</h3>
+        <p class="text-xs text-text-secondary mt-1">Rango de tolerancia térmica</p>
+      </div><div class="card p-4 reveal">
+        <div class="text-2xl mb-1">💦</div>
+        <h3 class="font-semibold text-accent-1 text-sm">Humedad</h3>
+        <p class="text-xs text-text-secondary mt-1">Disponibilidad hídrica</p>
+      </div><div class="card p-4 reveal">
+        <div class="text-2xl mb-1">🌬️</div>
+        <h3 class="font-semibold text-accent-1 text-sm">Viento</h3>
+        <p class="text-xs text-text-secondary mt-1">Dirección e intensidad</p>
+      </div><div class="card p-4 reveal">
+        <div class="text-2xl mb-1">🧪</div>
+        <h3 class="font-semibold text-accent-1 text-sm">pH y minerales</h3>
+        <p class="text-xs text-text-secondary mt-1">Composición química del sustrato</p>
+      </div></div>
+    <p class="src mt-4 reveal"><a href="https://education.nationalgeographic.org/resource/resource-library-abiotic-factor/" target="_blank">National Geographic, Abiotic Factors</a></p>
+  </div>
+</div>
+
+<div class="slide slide-10" data-slide="10">
+  <div class="gradient-mesh"><div class="blob" style="width:280px;height:280px;bottom:-60px;left:-60px;background:var(--color-accent-3);opacity:.08;"></div></div>
+  <div class="content">
+    <span class="tag reveal">18 de agosto</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Conceptos ecológicos fundamentales</h2>
+    <ul class="mt-6 space-y-4 text-lg text-text-secondary reveal"><li><b class="text-accent-1">Habitat:</b> espacio físico donde reside un organismo y encuentra las condiciones necesarias para sobrevivir</li><li><b class="text-accent-1">Nicho ecológico:</b> función que desempeña un organismo dentro de su ecosistema, incluyendo sus relaciones tróficas</li><li><b class="text-accent-1">Bioma:</b> comunidad de organismos adaptados a condiciones climáticas y geográficas compartidas a gran escala</li></ul>
+    <p class="src mt-4 reveal"><a href="https://institutes.abu.edu.ng/idr/public/assets/docs/Environmental%20Chemistry,%20Ninth%20Edition%20(%20PDFDrive%20).pdf" target="_blank">Manahan (2010). Environmental Chemistry, 9th ed.</a></p>
+  </div>
+</div>
+
+<div class="slide slide-11" data-slide="11">
+  <div class="gradient-mesh"><div class="blob" style="width:260px;height:260px;top:-50px;left:-50px;background:var(--color-accent-2);opacity:.07;"></div></div>
+  <div class="content">
+    <span class="tag reveal">18 de agosto</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Ejemplo aplicado: habitat vs. nicho</h2>
+    <p class="text-lg text-text-secondary mt-4 reveal">Distinguir habitat de nicho es clave para entender la coexistencia de especies dentro de un mismo ecosistema.</p><div class="grid grid-cols-2 gap-6 mt-6"><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Habitat compartido</h3>
+        <p class="text-sm text-text-secondary">Varias especies de aves pueden habitar el mismo bosque (mismo habitat)</p>
+      </div><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Nicho diferenciado</h3>
+        <p class="text-sm text-text-secondary">Cada especie ocupa un nicho distinto: unas se alimentan de insectos en el dosel, otras de semillas en el suelo, evitando competencia directa</p>
+      </div></div>
+    <p class="src mt-4 reveal"><a href="https://institutes.abu.edu.ng/idr/public/assets/docs/Environmental%20Chemistry,%20Ninth%20Edition%20(%20PDFDrive%20).pdf" target="_blank">Manahan (2010)</a></p>
+  </div>
+</div>
+
+<div class="slide slide-12" data-slide="12">
+  <div class="gradient-mesh"><div class="blob" style="width:300px;height:300px;bottom:-70px;right:-70px;background:var(--color-accent-3);opacity:.08;"></div></div>
+  <div class="content">
+    <span class="tag reveal">18 de agosto</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Ecosistemas naturales</h2>
+    <div class="grid grid-cols-3 gap-4 mt-6"><div class="card p-4 reveal">
+        <div class="text-2xl mb-1">🌲</div>
+        <h3 class="font-semibold text-accent-1 text-sm">Terrestres</h3>
+        <p class="text-xs text-text-secondary mt-1">Bosques, pastizales y desiertos, clasificados según precipitación y temperatura media anual</p>
+      </div><div class="card p-4 reveal">
+        <div class="text-2xl mb-1">💧</div>
+        <h3 class="font-semibold text-accent-1 text-sm">Agua dulce</h3>
+        <p class="text-xs text-text-secondary mt-1">Sistemas lóticos (ríos, corrientes) y lénticos (lagos, lagunas) con recambio hídrico distinto</p>
+      </div><div class="card p-4 reveal">
+        <div class="text-2xl mb-1">🌊</div>
+        <h3 class="font-semibold text-accent-1 text-sm">Marinos</h3>
+        <p class="text-xs text-text-secondary mt-1">Zonas nerítica (costera) y oceánica (mar abierto), determinadas por profundidad y penetración lumínica</p>
+      </div></div>
+    <p class="src mt-4 reveal"><a href="https://www.ndl.ethernet.edu.et/bitstream/123456789/9104/1/Stanley%20E.Manahan_2000.pdf" target="_blank">Manahan (2000)</a> · <a href="https://elearning.reb.rw/course/view.php?id=533&section=2" target="_blank">REB, Concept of Ecosystem</a></p>
+  </div>
+</div>
+
+<div class="slide slide-13" data-slide="13">
+  <div class="gradient-mesh"><div class="blob" style="width:280px;height:280px;top:-60px;right:-60px;background:var(--color-accent-2);opacity:.07;"></div></div>
+  <div class="content">
+    <span class="tag reveal">18 de agosto</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Ecosistemas artificiales (antrópicos)</h2>
+    <p class="text-lg text-text-secondary mt-4 reveal">Sistemas mantenidos mediante intervención humana continua, con adición externa de energía y manejo planificado de sus componentes.</p><div class="grid grid-cols-2 gap-6 mt-6"><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Ejemplos representativos</h3>
+        <p class="text-sm text-text-secondary">Agroecosistemas, embalses artificiales, zonas urbanas e industriales</p>
+      </div><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Antroposfera</h3>
+        <p class="text-sm text-text-secondary">Parte del ambiente global creada, modificada y operada por el ser humano; concepto central en el marco de las cinco esferas de Manahan</p>
+      </div></div>
+    <p class="src mt-4 reveal"><a href="https://elearning.reb.rw/course/view.php?id=533&section=2" target="_blank">REB, Concept of Ecosystem</a> · <a href="https://institutes.abu.edu.ng/idr/public/assets/docs/Environmental%20Chemistry,%20Ninth%20Edition%20(%20PDFDrive%20).pdf" target="_blank">Manahan (2010)</a></p>
+  </div>
+</div>
+
+<div class="slide slide-14" data-slide="14">
+  <div class="gradient-mesh"><div class="blob" style="width:280px;height:280px;bottom:-60px;left:-60px;background:var(--color-accent-3);opacity:.08;"></div></div>
+  <div class="content">
+    <span class="tag reveal">18 de agosto</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Presión antrópica sobre ecosistemas naturales</h2>
+    <p class="text-lg text-text-secondary mt-4 reveal">La expansión de la antroposfera genera fragmentación de habitats naturales, alterando los flujos de energía y materia característicos de los ecosistemas prístinos.</p><div class="grid grid-cols-2 gap-6 mt-6"><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Fragmentación</h3>
+        <p class="text-sm text-text-secondary">División de ecosistemas continuos en parches aislados, reduciendo biodiversidad</p>
+      </div><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Homogeneización biótica</h3>
+        <p class="text-sm text-text-secondary">Sustitución de comunidades diversas por especies generalistas tolerantes a la perturbación humana</p>
+      </div></div>
+    <p class="src mt-4 reveal"><a href="https://institutes.abu.edu.ng/idr/public/assets/docs/Environmental%20Chemistry,%20Ninth%20Edition%20(%20PDFDrive%20).pdf" target="_blank">Manahan (2010)</a></p>
+  </div>
+</div>
+
+<div class="slide slide-15" data-slide="15">
+  <div class="gradient-mesh"><div class="blob" style="width:260px;height:260px;top:-50px;left:-50px;background:var(--color-accent-2);opacity:.07;"></div></div>
+  <div class="content">
+    <span class="tag reveal">18 de agosto</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Síntesis de la sesión</h2>
+    <p class="text-lg text-text-secondary mt-4 reveal">La química ambiental estudia el comportamiento de sustancias en las cinco esferas terrestres; los ecosistemas —naturales o artificiales— constituyen la unidad funcional básica de análisis, con componentes bióticos y abióticos interdependientes.</p>
+    <p class="src mt-4 reveal"><a href="https://www.ndl.ethernet.edu.et/bitstream/123456789/9104/1/Stanley%20E.Manahan_2000.pdf" target="_blank">Manahan (2000)</a></p>
+  </div>
+</div>
+
+<div class="slide slide-16" data-slide="16">
+  <div class="gradient-mesh"><div class="blob" style="width:300px;height:300px;bottom:-70px;right:-70px;background:var(--color-accent-3);opacity:.08;"></div></div>
+  <div class="content">
+    <span class="tag reveal">20 de agosto</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Flujo de energía en ecosistemas</h2>
+    <p class="text-lg text-text-secondary mt-4 reveal">La energía solar es fijada por los productores mediante fotosíntesis y transferida de manera unidireccional entre niveles tróficos, disipándose parcialmente como calor en cada transferencia.</p><div class="grid grid-cols-3 gap-4 mt-6"><div class="card p-4 reveal">
+        <div class="text-2xl mb-1">🌿</div>
+        <h3 class="font-semibold text-accent-1 text-sm">Productores</h3>
+        <p class="text-xs text-text-secondary mt-1">Autótrofos que fijan energía solar mediante fotosíntesis</p>
+      </div><div class="card p-4 reveal">
+        <div class="text-2xl mb-1">🦌</div>
+        <h3 class="font-semibold text-accent-1 text-sm">Consumidores</h3>
+        <p class="text-xs text-text-secondary mt-1">Herbívoros (primarios), carnívoros (secundarios/terciarios)</p>
+      </div><div class="card p-4 reveal">
+        <div class="text-2xl mb-1">🍄</div>
+        <h3 class="font-semibold text-accent-1 text-sm">Descomponedores</h3>
+        <p class="text-xs text-text-secondary mt-1">Bacterias y hongos que mineralizan materia orgánica</p>
+      </div></div>
+    <p class="src mt-4 reveal"><a href="https://www.pmfias.com/trophic-levels-food-chain-food-web-biotic-interaction/" target="_blank">PMF IAS, Trophic Levels</a> · <a href="https://www.bbc.co.uk/bitesize/articles/zg7vqyc" target="_blank">BBC Bitesize, Energy Flow</a></p>
+  </div>
+</div>
+
+<div class="slide slide-17" data-slide="17">
+  <div class="gradient-mesh"><div class="blob" style="width:280px;height:280px;top:-60px;right:-60px;background:var(--color-accent-2);opacity:.07;"></div></div>
+  <div class="content">
+    <span class="tag reveal">20 de agosto</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Productores, consumidores y descomponedores</h2>
+    <div class="grid grid-cols-2 gap-6 mt-6"><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Productores</h3>
+        <p class="text-sm text-text-secondary">Organismos que usan fotosíntesis para capturar energía lumínica, agua y CO2, generando carbohidratos y biomasa</p>
+      </div><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Consumidores</h3>
+        <p class="text-sm text-text-secondary">Heterótrofos que obtienen energía consumiendo otros organismos; se clasifican en primarios, secundarios y terciarios según su posición trófica</p>
+      </div><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Descomponedores</h3>
+        <p class="text-sm text-text-secondary">Convierten la materia orgánica muerta en CO2 y nutrientes minerales (N, P) reutilizables por productores</p>
+      </div></div>
+    <p class="src mt-4 reveal"><a href="http://eagri.org/eagri50/ENVS302/pdf/lec05.pdf" target="_blank">eAgri, Producers Consumers Decomposers</a></p>
+  </div>
+</div>
+
+<div class="slide slide-18" data-slide="18">
+  <div class="gradient-mesh"><div class="blob" style="width:280px;height:280px;bottom:-60px;left:-60px;background:var(--color-accent-3);opacity:.08;"></div></div>
+  <div class="content">
+    <span class="tag reveal">20 de agosto</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Cadena y red trófica</h2>
+    <p class="text-lg text-text-secondary mt-4 reveal">Una cadena alimenticia describe la secuencia lineal de transferencia de energía entre organismos; una red trófica representa las múltiples interconexiones reales entre cadenas dentro de un ecosistema.</p><p class="text-lg text-text-secondary mt-4 reveal">Regla del 10%: solo cerca del 10% de la energía disponible en un nivel trófico se transfiere al siguiente nivel; el resto se pierde como calor metabólico, lo que limita el número de niveles tróficos posibles.</p>
+    <p class="src mt-4 reveal"><a href="https://www.siyavula.com/read/za/life-sciences/grade-10/biosphere-to-ecosystems/08-biosphere-to-ecosystems-06" target="_blank">Siyavula, Energy Flow</a></p>
+  </div>
+</div>
+
+<div class="slide slide-19" data-slide="19">
+  <div class="gradient-mesh"><div class="blob" style="width:260px;height:260px;top:-50px;left:-50px;background:var(--color-accent-2);opacity:.07;"></div></div>
+  <div class="content">
+    <span class="tag reveal">20 de agosto</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Pirámides ecológicas</h2>
+    <p class="text-lg text-text-secondary mt-4 reveal">Representaciones gráficas de la estructura trófica de un ecosistema, con los productores en la base y los consumidores de orden superior en el ápice.</p><div class="grid grid-cols-3 gap-4 mt-6"><div class="card p-4 reveal">
+        <div class="text-2xl mb-1">🔢</div>
+        <h3 class="font-semibold text-accent-1 text-sm">Pirámide de números</h3>
+        <p class="text-xs text-text-secondary mt-1">Cantidad de individuos por nivel trófico</p>
+      </div><div class="card p-4 reveal">
+        <div class="text-2xl mb-1">⚖️</div>
+        <h3 class="font-semibold text-accent-1 text-sm">Pirámide de biomasa</h3>
+        <p class="text-xs text-text-secondary mt-1">Peso seco total de materia orgánica por nivel</p>
+      </div><div class="card p-4 reveal">
+        <div class="text-2xl mb-1">⚡</div>
+        <h3 class="font-semibold text-accent-1 text-sm">Pirámide de energía</h3>
+        <p class="text-xs text-text-secondary mt-1">Tasa de flujo de energía o productividad por nivel</p>
+      </div></div>
+    <p class="src mt-4 reveal"><a href="https://www.britannica.com/science/trophic-pyramid" target="_blank">Britannica, Trophic Pyramid</a> · <a href="https://ilchs.org/sites/default/files/2015-1-20-Living-Environment-Gil.pdf" target="_blank">ILCHS, Food Chains and Webs</a></p>
+  </div>
+</div>
+
+<div class="slide slide-20" data-slide="20">
+  <div class="gradient-mesh"><div class="blob" style="width:300px;height:300px;bottom:-70px;right:-70px;background:var(--color-accent-3);opacity:.08;"></div></div>
+  <div class="content">
+    <span class="tag reveal">20 de agosto</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Pérdida de biomasa entre niveles</h2>
+    <p class="text-lg text-text-secondary mt-4 reveal">Cada nivel trófico sucesivo contiene menor biomasa que el anterior, reflejando la pérdida de energía metabólica en cada transferencia.</p><div class="grid grid-cols-2 gap-6 mt-6"><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Consecuencia ecológica</h3>
+        <p class="text-sm text-text-secondary">El número de niveles tróficos sustentables en un ecosistema está limitado por la eficiencia energética decreciente</p>
+      </div><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Ejemplo aplicado</h3>
+        <p class="text-sm text-text-secondary">Un ecosistema puede sostener productores abundantes, pero muy pocos depredadores tope debido a esta pérdida progresiva</p>
+      </div></div>
+    <p class="src mt-4 reveal"><a href="https://ilchs.org/sites/default/files/2015-1-20-Living-Environment-Gil.pdf" target="_blank">ILCHS, Food Chains, Food Webs and Ecological Pyramids</a></p>
+  </div>
+</div>
+
+<div class="slide slide-21" data-slide="21">
+  <div class="gradient-mesh"><div class="blob" style="width:280px;height:280px;top:-60px;right:-60px;background:var(--color-accent-2);opacity:.07;"></div></div>
+  <div class="content">
+    <span class="tag reveal">20 de agosto</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Ciclos biogeoquímicos: definición</h2>
+    <p class="text-lg text-text-secondary mt-4 reveal">Procesos naturales que regulan el movimiento cíclico de elementos esenciales (C, N, P, S) y compuestos como el agua entre los reservorios bióticos y abióticos del planeta.</p><div class="grid grid-cols-2 gap-6 mt-6"><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Reservorios</h3>
+        <p class="text-sm text-text-secondary">Atmósfera, hidrosfera, litosfera y biosfera actúan como almacenes temporales de cada elemento</p>
+      </div><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Procesos clave</h3>
+        <p class="text-sm text-text-secondary">Asimilación biológica, liberación por descomposición, y transformación fisicoquímica entre fases</p>
+      </div></div>
+    <p class="src mt-4 reveal"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12025154/" target="_blank">Zaman et al. (2025), PMC</a> · <a href="https://www.sciencedirect.com/topics/earth-and-planetary-sciences/biogeochemical-cycle" target="_blank">ScienceDirect, Biogeochemical Cycle</a></p>
+  </div>
+</div>
+
+<div class="slide slide-22" data-slide="22">
+  <div class="gradient-mesh"><div class="blob" style="width:280px;height:280px;bottom:-60px;left:-60px;background:var(--color-accent-3);opacity:.08;"></div></div>
+  <div class="content">
+    <span class="tag reveal">20 de agosto</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Ciclo del carbono</h2>
+    <p class="text-lg text-text-secondary mt-4 reveal">El carbono se desplaza entre reservorios orgánicos (organismos vivos) e inorgánicos (atmósfera, océanos, rocas) mediante procesos biológicos y geológicos.</p><div class="grid grid-cols-2 gap-6 mt-6"><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Fotosíntesis</h3>
+        <p class="text-sm text-text-secondary">6CO₂ + 6H₂O + luz → C₆H₁₂O₆ + 6O₂; los productores actúan como sumidero de carbono</p>
+      </div><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Respiración y combustión</h3>
+        <p class="text-sm text-text-secondary">C₆H₁₂O₆ + O₂ → CO₂ + H₂O; libera carbono de vuelta a la atmósfera como fuente</p>
+      </div></div>
+    <p class="src mt-4 reveal"><a href="https://www.noaa.gov/education/resource-collections/climate/carbon-cycle" target="_blank">NOAA, Carbon Cycle</a> · <a href="https://www.albert.io/blog/carbon-cycle-ap-environmental-science-review/" target="_blank">Albert.io, Carbon Cycle APES Review</a></p>
+  </div>
+</div>
+
+<div class="slide slide-23" data-slide="23">
+  <div class="gradient-mesh"><div class="blob" style="width:260px;height:260px;top:-50px;left:-50px;background:var(--color-accent-2);opacity:.07;"></div></div>
+  <div class="content">
+    <span class="tag reveal">20 de agosto</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Ciclo del carbono: componente geológico</h2>
+    <p class="text-lg text-text-secondary mt-4 reveal">A escala de tiempo geológica, el carbono se transfiere entre la atmósfera y las rocas sedimentarias mediante meteorización química y formación de carbonatos, un proceso que opera en millones de años, a diferencia del ciclo biológico rápido.</p>
+    <p class="src mt-4 reveal"><a href="https://www.albert.io/blog/carbon-cycle-ap-environmental-science-review/" target="_blank">Albert.io, Carbon Cycle APES Review</a></p>
+  </div>
+</div>
+
+<div class="slide slide-24" data-slide="24">
+  <div class="gradient-mesh"><div class="blob" style="width:300px;height:300px;bottom:-70px;right:-70px;background:var(--color-accent-3);opacity:.08;"></div></div>
+  <div class="content">
+    <span class="tag reveal">20 de agosto</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Reservorios del carbono</h2>
+    <div class="grid grid-cols-3 gap-4 mt-6"><div class="card p-4 reveal">
+        <div class="text-2xl mb-1">🌤️</div>
+        <h3 class="font-semibold text-accent-1 text-sm">Corto plazo</h3>
+        <p class="text-xs text-text-secondary mt-1">Atmósfera y organismos vivos: circulación en días a años</p>
+      </div><div class="card p-4 reveal">
+        <div class="text-2xl mb-1">🌊</div>
+        <h3 class="font-semibold text-accent-1 text-sm">Mediano plazo</h3>
+        <p class="text-xs text-text-secondary mt-1">Aguas superficiales oceánicas; disolución como carbonatos</p>
+      </div><div class="card p-4 reveal">
+        <div class="text-2xl mb-1">⛰️</div>
+        <h3 class="font-semibold text-accent-1 text-sm">Largo plazo</h3>
+        <p class="text-xs text-text-secondary mt-1">Combustibles fósiles y formaciones geológicas profundas: millones de años</p>
+      </div></div>
+    <p class="src mt-4 reveal"><a href="https://www.albert.io/blog/carbon-cycle-ap-environmental-science-review/" target="_blank">Albert.io, Carbon Cycle APES Review</a></p>
+  </div>
+</div>
+
+<div class="slide slide-25" data-slide="25">
+  <div class="gradient-mesh"><div class="blob" style="width:280px;height:280px;top:-60px;right:-60px;background:var(--color-accent-2);opacity:.07;"></div></div>
+  <div class="content">
+    <span class="tag reveal">20 de agosto</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Ciclo del nitrógeno</h2>
+    <p class="text-lg text-text-secondary mt-4 reveal">El nitrógeno atmosférico (N₂) es inaccesible para la mayoría de los organismos y debe transformarse mediante procesos microbianos secuenciales para incorporarse a la biomasa.</p><div class="grid grid-cols-2 gap-6 mt-6"><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Fijación</h3>
+        <p class="text-sm text-text-secondary">Bacterias simbióticas y de vida libre (Rhizobium) convierten N₂ en NH₃/NH₄⁺ asimilable</p>
+      </div><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Nitrificación</h3>
+        <p class="text-sm text-text-secondary">Bacterias quimioautótrofas (Nitrosomonas, Nitrobacter) oxidan NH₄⁺ a NO₂⁻ y luego a NO₃⁻</p>
+      </div><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Desnitrificación</h3>
+        <p class="text-sm text-text-secondary">Bacterias anaerobias (Pseudomonas) reducen NO₃⁻ a N₂ gaseoso, cerrando el ciclo</p>
+      </div></div>
+    <p class="src mt-4 reveal"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4932190/" target="_blank">Pajares & Bohannan (2016), PMC</a> · <a href="https://courses.lumenlearning.com/wm-biology2/chapter/the-nitrogen-cycle/" target="_blank">Lumen Learning, Nitrogen Cycle</a></p>
+  </div>
+</div>
+
+<div class="slide slide-26" data-slide="26">
+  <div class="gradient-mesh"><div class="blob" style="width:280px;height:280px;bottom:-60px;left:-60px;background:var(--color-accent-3);opacity:.08;"></div></div>
+  <div class="content">
+    <span class="tag reveal">20 de agosto</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Nitrógeno: el nutriente limitante</h2>
+    <p class="text-lg text-text-secondary mt-4 reveal">El nitrógeno es frecuentemente el nutriente que limita la productividad primaria en ecosistemas terrestres y acuáticos, debido a que su forma atmosférica (N₂) es químicamente inerte.</p><div class="grid grid-cols-2 gap-6 mt-6"><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Rol en eutrofización</h3>
+        <p class="text-sm text-text-secondary">El exceso de nitratos por fertilización agrícola provoca proliferación algal descontrolada en cuerpos de agua</p>
+      </div><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Importancia agrícola</h3>
+        <p class="text-sm text-text-secondary">La fijación biológica en leguminosas reduce la dependencia de fertilizantes nitrogenados sintéticos</p>
+      </div></div>
+    <p class="src mt-4 reveal"><a href="https://courses.lumenlearning.com/wm-biology2/chapter/the-nitrogen-cycle/" target="_blank">Lumen Learning, The Nitrogen Cycle</a></p>
+  </div>
+</div>
+
+<div class="slide slide-27" data-slide="27">
+  <div class="gradient-mesh"><div class="blob" style="width:260px;height:260px;top:-50px;left:-50px;background:var(--color-accent-2);opacity:.07;"></div></div>
+  <div class="content">
+    <span class="tag reveal">20 de agosto</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Ciclos del fósforo y del azufre</h2>
+    <div class="grid grid-cols-2 gap-6 mt-6"><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Ciclo del fósforo</h3>
+        <p class="text-sm text-text-secondary">Predominantemente sedimentario, sin fase gaseosa relevante; liberado por meteorización de rocas fosfatadas; nutriente limitante y asociado a eutrofización en exceso</p>
+      </div><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Ciclo del azufre</h3>
+        <p class="text-sm text-text-secondary">Incluye mineralización de S orgánico a H₂S, oxidación a sulfato (SO₄²⁻) por bacterias quimiolitótrofas, y reducción de sulfato a sulfuro por bacterias anaerobias (Desulfovibrio)</p>
+      </div></div>
+    <p class="src mt-4 reveal"><a href="https://en.wikipedia.org/wiki/Sulfur_cycle" target="_blank">Wikipedia, Sulfur Cycle</a> · <a href="https://byjus.com/biology/sulphur-cycle/" target="_blank">BYJU'S, Sulphur Cycle</a></p>
+  </div>
+</div>
+
+<div class="slide slide-28" data-slide="28">
+  <div class="gradient-mesh"><div class="blob" style="width:300px;height:300px;bottom:-70px;right:-70px;background:var(--color-accent-3);opacity:.08;"></div></div>
+  <div class="content">
+    <span class="tag reveal">20 de agosto</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Ciclo hidrológico</h2>
+    <p class="text-lg text-text-secondary mt-4 reveal">El agua circula continuamente entre la superficie terrestre y la atmósfera mediante cuatro fases fundamentales, impulsadas por la energía solar y la gravedad.</p><div class="grid grid-cols-3 gap-4 mt-6"><div class="card p-4 reveal">
+        <div class="text-2xl mb-1">☀️</div>
+        <h3 class="font-semibold text-accent-1 text-sm">Evaporación/transpiración</h3>
+        <p class="text-xs text-text-secondary mt-1">Calentamiento solar convierte agua líquida en vapor</p>
+      </div><div class="card p-4 reveal">
+        <div class="text-2xl mb-1">☁️</div>
+        <h3 class="font-semibold text-accent-1 text-sm">Condensación</h3>
+        <p class="text-xs text-text-secondary mt-1">El vapor se enfría y forma gotas que constituyen nubes</p>
+      </div><div class="card p-4 reveal">
+        <div class="text-2xl mb-1">🌧️</div>
+        <h3 class="font-semibold text-accent-1 text-sm">Precipitación</h3>
+        <p class="text-xs text-text-secondary mt-1">Las gotas caen como lluvia, nieve o granizo por gravedad</p>
+      </div></div>
+    <p class="src mt-4 reveal"><a href="https://fondationdaniellemitterrand.org/the-water-cycle/" target="_blank">Fondation Danielle Mitterrand, Water Cycle</a></p>
+  </div>
+</div>
+
+<div class="slide slide-29" data-slide="29">
+  <div class="gradient-mesh"><div class="blob" style="width:280px;height:280px;top:-60px;right:-60px;background:var(--color-accent-2);opacity:.07;"></div></div>
+  <div class="content">
+    <span class="tag reveal">20 de agosto</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Relevancia ambiental del ciclo hidrológico</h2>
+    <p class="text-lg text-text-secondary mt-4 reveal">El ciclo hidrológico conecta directamente las cinco esferas terrestres y determina la disponibilidad de agua dulce para ecosistemas y actividades humanas.</p><div class="grid grid-cols-2 gap-6 mt-6"><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Interconexión de esferas</h3>
+        <p class="text-sm text-text-secondary">El agua se desplaza entre atmósfera, hidrosfera, geosfera y biosfera de forma continua</p>
+      </div><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Vínculo con contaminación</h3>
+        <p class="text-sm text-text-secondary">Los contaminantes se transportan y redistribuyen siguiendo las mismas rutas del ciclo del agua</p>
+      </div></div>
+    <p class="src mt-4 reveal"><a href="https://fondationdaniellemitterrand.org/the-water-cycle/" target="_blank">Fondation Danielle Mitterrand, Water Cycle</a></p>
+  </div>
+</div>
+
+<div class="slide slide-30" data-slide="30">
+  <div class="gradient-mesh"><div class="blob" style="width:280px;height:280px;bottom:-60px;left:-60px;background:var(--color-accent-3);opacity:.08;"></div></div>
+  <div class="content">
+    <span class="tag reveal">25 de agosto</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Contaminación: conceptos fundamentales</h2>
+    <div class="grid grid-cols-2 gap-6 mt-6"><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Toxicidad</h3>
+        <p class="text-sm text-text-secondary">Capacidad de una sustancia de producir daño biológico; se clasifica en aguda (exposición corta, alta dosis) y crónica (exposición prolongada, baja dosis)</p>
+      </div><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Emisión</h3>
+        <p class="text-sm text-text-secondary">Liberación de una sustancia al ambiente desde una fuente puntual (identificable) o difusa (dispersa, no puntual)</p>
+      </div></div>
+    <p class="src mt-4 reveal"><a href="https://www.ndl.ethernet.edu.et/bitstream/123456789/9104/1/Stanley%20E.Manahan_2000.pdf" target="_blank">Manahan (2000), Environmental Chemistry</a></p>
+  </div>
+</div>
+
+<div class="slide slide-31" data-slide="31">
+  <div class="gradient-mesh"><div class="blob" style="width:260px;height:260px;top:-50px;left:-50px;background:var(--color-accent-2);opacity:.07;"></div></div>
+  <div class="content">
+    <span class="tag reveal">25 de agosto</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Toxicidad: definición formal</h2>
+    <p class="text-lg text-text-secondary mt-4 reveal">Capacidad intrínseca de una sustancia química de producir un efecto biológico adverso en un organismo, dependiente de la dosis administrada, la vía de exposición y las características del organismo receptor.</p>
+    <p class="src mt-4 reveal"><a href="https://www.ndl.ethernet.edu.et/bitstream/123456789/9104/1/Stanley%20E.Manahan_2000.pdf" target="_blank">Manahan (2000), Environmental Chemistry</a></p>
+  </div>
+</div>
+
+<div class="slide slide-32" data-slide="32">
+  <div class="gradient-mesh"><div class="blob" style="width:300px;height:300px;bottom:-70px;right:-70px;background:var(--color-accent-3);opacity:.08;"></div></div>
+  <div class="content">
+    <span class="tag reveal">25 de agosto</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Peligrosidad vs. riesgo</h2>
+    <p class="text-lg text-text-secondary mt-4 reveal">Distinguir peligrosidad de riesgo es esencial para el diagnóstico y la gestión ambiental correcta de una sustancia química.</p><div class="grid grid-cols-2 gap-6 mt-6"><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Peligrosidad (hazard)</h3>
+        <p class="text-sm text-text-secondary">Propiedad intrínseca de una sustancia de causar daño, independiente de la probabilidad de exposición; ej. inflamabilidad, corrosividad, toxicidad</p>
+      </div><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Riesgo (risk)</h3>
+        <p class="text-sm text-text-secondary">Probabilidad de que el daño potencial se manifieste realmente, en función de la exposición: Riesgo = Peligrosidad × Exposición</p>
+      </div></div>
+    <p class="src mt-4 reveal"><a href="https://toxedfoundation.org/hazard-vs-risk/" target="_blank">ToxEd Foundation, Hazard vs Risk</a> · <a href="https://www.efsa.europa.eu/en/discover/infographics/hazard-vs-risk" target="_blank">EFSA, Hazard vs Risk</a></p>
+  </div>
+</div>
+
+<div class="slide slide-33" data-slide="33">
+  <div class="gradient-mesh"><div class="blob" style="width:280px;height:280px;top:-60px;right:-60px;background:var(--color-accent-2);opacity:.07;"></div></div>
+  <div class="content">
+    <span class="tag reveal">25 de agosto</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Tipos de toxicidad según duración</h2>
+    <div class="grid grid-cols-3 gap-4 mt-6"><div class="card p-4 reveal">
+        <div class="text-2xl mb-1">⚡</div>
+        <h3 class="font-semibold text-accent-1 text-sm">Aguda</h3>
+        <p class="text-xs text-text-secondary mt-1">Efectos adversos derivados de una exposición única o múltiple en un periodo corto (usualmente menor a 24 h)</p>
+      </div><div class="card p-4 reveal">
+        <div class="text-2xl mb-1">⏱️</div>
+        <h3 class="font-semibold text-accent-1 text-sm">Subaguda / subcrónica</h3>
+        <p class="text-xs text-text-secondary mt-1">Efectos por exposición repetida entre 24 h y 90 días; usada para determinar dosis de estudios crónicos</p>
+      </div><div class="card p-4 reveal">
+        <div class="text-2xl mb-1">📅</div>
+        <h3 class="font-semibold text-accent-1 text-sm">Crónica</h3>
+        <p class="text-xs text-text-secondary mt-1">Efectos derivados de exposición prolongada de baja dosis, cubriendo una porción significativa de la vida del organismo</p>
+      </div></div>
+    <p class="src mt-4 reveal"><a href="https://ecomundo.eu/en/blog/acute-chronic-sub-acute-toxicity-levels" target="_blank">Ecomundo, Acute Chronic Sub-Acute Toxicity</a> · <a href="https://www.nano-lab.com.tr/en/blog/detail/toxicology-studies-acute-chronic-and-subchronic-toxicity-tests" target="_blank">Nano-Lab, Toxicology Studies</a></p>
+  </div>
+</div>
+
+<div class="slide slide-34" data-slide="34">
+  <div class="gradient-mesh"><div class="blob" style="width:280px;height:280px;bottom:-60px;left:-60px;background:var(--color-accent-3);opacity:.08;"></div></div>
+  <div class="content">
+    <span class="tag reveal">25 de agosto</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Clasificación de peligrosidad de residuos</h2>
+    <p class="text-lg text-text-secondary mt-4 reveal">En el marco regulatorio ambiental, un residuo se clasifica como peligroso cuando presenta al menos una de las siguientes características (CRETIB).</p><div class="grid grid-cols-3 gap-4 mt-6"><div class="card p-4 reveal">
+        <div class="text-2xl mb-1">🔥</div>
+        <h3 class="font-semibold text-accent-1 text-sm">Corrosivo / Reactivo</h3>
+        <p class="text-xs text-text-secondary mt-1">Capacidad de corroer materiales o reaccionar violentamente</p>
+      </div><div class="card p-4 reveal">
+        <div class="text-2xl mb-1">💥</div>
+        <h3 class="font-semibold text-accent-1 text-sm">Explosivo / Inflamable</h3>
+        <p class="text-xs text-text-secondary mt-1">Riesgo de ignición o detonación bajo ciertas condiciones</p>
+      </div><div class="card p-4 reveal">
+        <div class="text-2xl mb-1">☠️</div>
+        <h3 class="font-semibold text-accent-1 text-sm">Tóxico / Biológico-infeccioso</h3>
+        <p class="text-xs text-text-secondary mt-1">Daño a la salud humana o presencia de agentes patógenos</p>
+      </div></div>
+    <p class="src mt-4 reveal"><a href="https://biblioteca.semarnat.gob.mx/janium/Documentos/Ciga/agenda/PP03/ProntuarioNormas.pdf" target="_blank">SEMARNAT, Prontuario de Normas Oficiales Mexicanas</a></p>
+  </div>
+</div>
+
+<div class="slide slide-35" data-slide="35">
+  <div class="gradient-mesh"><div class="blob" style="width:260px;height:260px;top:-50px;left:-50px;background:var(--color-accent-2);opacity:.07;"></div></div>
+  <div class="content">
+    <span class="tag reveal">25 de agosto</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Fuentes puntuales y difusas</h2>
+    <div class="grid grid-cols-2 gap-6 mt-6"><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Fuentes puntuales</h3>
+        <p class="text-sm text-text-secondary">Origen identificable y localizado: descargas de plantas de tratamiento, derrames localizados, descargas industriales directas</p>
+      </div><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Fuentes difusas (no puntuales)</h3>
+        <p class="text-sm text-text-secondary">Origen disperso y de difícil rastreo: escorrentía urbana, escorrentía agrícola, fugas de drenaje</p>
+      </div></div>
+    <p class="src mt-4 reveal"><a href="https://www.ysi.com/ysi-blog/water-blogged-blog/2024/02/understanding-point-nonpoint-source-pollution" target="_blank">YSI, Point & Nonpoint Source Pollution (2024)</a></p>
+  </div>
+</div>
+
+<div class="slide slide-36" data-slide="36">
+  <div class="gradient-mesh"><div class="blob" style="width:300px;height:300px;bottom:-70px;right:-70px;background:var(--color-accent-3);opacity:.08;"></div></div>
+  <div class="content">
+    <span class="tag reveal">25 de agosto</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Ejemplos de fuentes de contaminación</h2>
+    <div class="grid grid-cols-3 gap-4 mt-6"><div class="card p-4 reveal">
+        <div class="text-2xl mb-1">🏭</div>
+        <h3 class="font-semibold text-accent-1 text-sm">Descarga industrial</h3>
+        <p class="text-xs text-text-secondary mt-1">Ácidos, PFAS, solventes, metales pesados (puntual)</p>
+      </div><div class="card p-4 reveal">
+        <div class="text-2xl mb-1">🚜</div>
+        <h3 class="font-semibold text-accent-1 text-sm">Escorrentía agrícola</h3>
+        <p class="text-xs text-text-secondary mt-1">Nutrientes y plaguicidas transportados por lluvia (difusa)</p>
+      </div><div class="card p-4 reveal">
+        <div class="text-2xl mb-1">🛢️</div>
+        <h3 class="font-semibold text-accent-1 text-sm">Derrame localizado</h3>
+        <p class="text-xs text-text-secondary mt-1">Hidrocarburos aromáticos policíclicos, PAHs (puntual)</p>
+      </div></div>
+    <p class="src mt-4 reveal"><a href="https://www.ysi.com/ysi-blog/water-blogged-blog/2024/02/understanding-point-nonpoint-source-pollution" target="_blank">YSI, Point & Nonpoint Source Pollution</a></p>
+  </div>
+</div>
+
+<div class="slide slide-37" data-slide="37">
+  <div class="gradient-mesh"><div class="blob" style="width:280px;height:280px;top:-60px;right:-60px;background:var(--color-accent-2);opacity:.07;"></div></div>
+  <div class="content">
+    <span class="tag reveal">25 de agosto</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Dosis-respuesta y LD50</h2>
+    <p class="text-lg text-text-secondary mt-4 reveal">La toxicología cuantitativa relaciona la magnitud de la exposición con la severidad del efecto biológico observado.</p><div class="grid grid-cols-2 gap-6 mt-6"><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Relación dosis-respuesta</h3>
+        <p class="text-sm text-text-secondary">A mayor dosis de una sustancia, mayor la probabilidad e intensidad del efecto tóxico observado en la población expuesta</p>
+      </div><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">LD50 (dosis letal media)</h3>
+        <p class="text-sm text-text-secondary">Dosis estadísticamente derivada que se espera cause la muerte del 50% de una población expuesta; parámetro estándar de toxicidad aguda</p>
+      </div></div>
+    <p class="src mt-4 reveal"><a href="http://www.chemsafetypro.com/Topics/CRA/Toxicology_Dose_Descriptors.html" target="_blank">ChemSafetyPro, Toxicological Dose Descriptors</a> · <a href="https://www.ebsco.com/research-starters/chemistry/median-lethal-dose" target="_blank">EBSCO, Median Lethal Dose</a></p>
+  </div>
+</div>
+
+<div class="slide slide-38" data-slide="38">
+  <div class="gradient-mesh"><div class="blob" style="width:280px;height:280px;bottom:-60px;left:-60px;background:var(--color-accent-3);opacity:.08;"></div></div>
+  <div class="content">
+    <span class="tag reveal">25 de agosto</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Curvas dosis-respuesta</h2>
+    <p class="text-lg text-text-secondary mt-4 reveal">La relación entre la dosis administrada y la magnitud del efecto biológico observado sigue típicamente una curva sigmoidal en escala logarítmica de dosis.</p><div class="grid grid-cols-2 gap-6 mt-6"><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Umbral de efecto</h3>
+        <p class="text-sm text-text-secondary">Dosis mínima por debajo de la cual no se observa respuesta tóxica detectable</p>
+      </div><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Pendiente de la curva</h3>
+        <p class="text-sm text-text-secondary">Indica la variabilidad de sensibilidad entre individuos de la población expuesta</p>
+      </div></div>
+    <p class="src mt-4 reveal"><a href="https://www.toxmsdt.com/24-dose-estimates-of-toxic-effects.html" target="_blank">ToxMSDT, Dose Estimates of Toxic Effects</a></p>
+  </div>
+</div>
+
+<div class="slide slide-39" data-slide="39">
+  <div class="gradient-mesh"><div class="blob" style="width:260px;height:260px;top:-50px;left:-50px;background:var(--color-accent-2);opacity:.07;"></div></div>
+  <div class="content">
+    <span class="tag reveal">25 de agosto</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Bioacumulación</h2>
+    <p class="text-lg text-text-secondary mt-4 reveal">Proceso mediante el cual una sustancia química se acumula en los tejidos de un organismo a una tasa mayor que la de su eliminación, típicamente por exposición a agua o alimento contaminado.</p>
+    <p class="src mt-4 reveal"><a href="https://study.com/academy/lesson/what-is-the-difference-between-bioaccumulation-biomagnification.html" target="_blank">Study.com, Bioaccumulation vs Biomagnification</a></p>
+  </div>
+</div>
+
+<div class="slide slide-40" data-slide="40">
+  <div class="gradient-mesh"><div class="blob" style="width:300px;height:300px;bottom:-70px;right:-70px;background:var(--color-accent-3);opacity:.08;"></div></div>
+  <div class="content">
+    <span class="tag reveal">25 de agosto</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Factores que favorecen la bioacumulación</h2>
+    <div class="grid grid-cols-2 gap-6 mt-6"><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Lipofilicidad</h3>
+        <p class="text-sm text-text-secondary">Sustancias con alta afinidad por tejido graso se acumulan preferentemente en organismos</p>
+      </div><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Baja tasa de biodegradación</h3>
+        <p class="text-sm text-text-secondary">Compuestos químicamente estables persisten más tiempo dentro del organismo que la vida media de eliminación</p>
+      </div></div>
+    <p class="src mt-4 reveal"><a href="https://study.com/academy/lesson/what-is-the-difference-between-bioaccumulation-biomagnification.html" target="_blank">Study.com, Bioaccumulation vs Biomagnification</a></p>
+  </div>
+</div>
+
+<div class="slide slide-41" data-slide="41">
+  <div class="gradient-mesh"><div class="blob" style="width:280px;height:280px;top:-60px;right:-60px;background:var(--color-accent-2);opacity:.07;"></div></div>
+  <div class="content">
+    <span class="tag reveal">25 de agosto</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Biomagnificación</h2>
+    <p class="text-lg text-text-secondary mt-4 reveal">Proceso por el cual la concentración de un contaminante persistente aumenta progresivamente al ascender en los niveles tróficos de una red alimenticia, debido a la transferencia acumulativa de tejido a depredador.</p><div class="grid grid-cols-2 gap-6 mt-6"><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Ejemplo clásico</h3>
+        <p class="text-sm text-text-secondary">El mercurio se concentra en depredadores tope como atún, pez espada y tiburón, alcanzando niveles muy superiores a los del agua circundante</p>
+      </div></div>
+    <p class="src mt-4 reveal"><a href="https://fortuneiascircle.com/backgrounder/biomagnification_and_bioaccumulation" target="_blank">Fortune IAS Circle, Biomagnification and Bioaccumulation</a> · <a href="https://cimi.org/blog/bioaccumulation-and-biomagnification-increasingly-concentrated-problems/" target="_blank">CIMI, Bioaccumulation and Biomagnification</a></p>
+  </div>
+</div>
+
+<div class="slide slide-42" data-slide="42">
+  <div class="gradient-mesh"><div class="blob" style="width:280px;height:280px;bottom:-60px;left:-60px;background:var(--color-accent-3);opacity:.08;"></div></div>
+  <div class="content">
+    <span class="tag reveal">25 de agosto</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Contaminantes persistentes (COPs)</h2>
+    <p class="text-lg text-text-secondary mt-4 reveal">Compuestos orgánicos halogenados, lipofílicos y químicamente estables que resisten la degradación fotolítica, química y biológica en el ambiente.</p><div class="grid grid-cols-2 gap-6 mt-6"><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Persistencia</h3>
+        <p class="text-sm text-text-secondary">Permanecen en el ambiente durante años o décadas sin degradarse significativamente</p>
+      </div><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Bioacumulación y transporte</h3>
+        <p class="text-sm text-text-secondary">Se concentran en tejido graso y son transportados a grandes distancias por corrientes atmosféricas y oceánicas</p>
+      </div></div>
+    <p class="src mt-4 reveal"><a href="https://www.pops.int/TheConvention/ThePOPs" target="_blank">Convenio de Estocolmo, The POPs</a> · <a href="https://www.gmisolutions.com/blog/persistent-organic-pollutants" target="_blank">GMI Solutions, Understanding POPs</a></p>
+  </div>
+</div>
+
+<div class="slide slide-43" data-slide="43">
+  <div class="gradient-mesh"><div class="blob" style="width:260px;height:260px;top:-50px;left:-50px;background:var(--color-accent-2);opacity:.07;"></div></div>
+  <div class="content">
+    <span class="tag reveal">25 de agosto</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Contaminantes emergentes</h2>
+    <p class="text-lg text-text-secondary mt-4 reveal">Sustancias sintéticas o naturales no reguladas históricamente cuyo riesgo ambiental y toxicológico aún no se comprende completamente, pero que se detectan con frecuencia creciente en el ambiente.</p><div class="grid grid-cols-3 gap-4 mt-6"><div class="card p-4 reveal">
+        <div class="text-2xl mb-1">🧪</div>
+        <h3 class="font-semibold text-accent-1 text-sm">PFAS</h3>
+        <p class="text-xs text-text-secondary mt-1">Sustancias perfluoroalquiladas, extremadamente persistentes</p>
+      </div><div class="card p-4 reveal">
+        <div class="text-2xl mb-1">💊</div>
+        <h3 class="font-semibold text-accent-1 text-sm">Fármacos</h3>
+        <p class="text-xs text-text-secondary mt-1">Residuos de medicamentos en aguas residuales</p>
+      </div><div class="card p-4 reveal">
+        <div class="text-2xl mb-1">🔬</div>
+        <h3 class="font-semibold text-accent-1 text-sm">Microplásticos</h3>
+        <p class="text-xs text-text-secondary mt-1">Fragmentos plásticos menores a 5 mm</p>
+      </div></div>
+    <p class="src mt-4 reveal"><a href="https://www.sciencedirect.com/journal/emerging-contaminants" target="_blank">ScienceDirect, Emerging Contaminants Journal</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11096751/" target="_blank">Wang et al. (2024), PMC</a></p>
+  </div>
+</div>
+
+<div class="slide slide-44" data-slide="44">
+  <div class="gradient-mesh"><div class="blob" style="width:300px;height:300px;bottom:-70px;right:-70px;background:var(--color-accent-3);opacity:.08;"></div></div>
+  <div class="content">
+    <span class="tag reveal">25 de agosto</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Contaminantes emergentes: casos adicionales</h2>
+    <div class="grid grid-cols-2 gap-6 mt-6"><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Disruptores endocrinos</h3>
+        <p class="text-sm text-text-secondary">Sustancias que interfieren con el sistema hormonal de organismos incluso en concentraciones traza</p>
+      </div><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Contaminantes de preocupación reciente</h3>
+        <p class="text-sm text-text-secondary">Atrazina, trifenilfosfato, tungsteno y clorofluorocarbonos identificados por su persistencia y efectos aún en estudio</p>
+      </div></div>
+    <p class="src mt-4 reveal"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11096751/" target="_blank">Wang et al. (2024), One Health Perspective, PMC</a></p>
+  </div>
+</div>
+
+<div class="slide slide-45" data-slide="45">
+  <div class="gradient-mesh"><div class="blob" style="width:280px;height:280px;top:-60px;right:-60px;background:var(--color-accent-2);opacity:.07;"></div></div>
+  <div class="content">
+    <span class="tag reveal">25 de agosto</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Comparación: persistentes vs. emergentes</h2>
+    <div class="grid grid-cols-2 gap-6 mt-6"><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Contaminantes persistentes (COPs)</h3>
+        <p class="text-sm text-text-secondary">Regulados internacionalmente (Convenio de Estocolmo), con evidencia toxicológica consolidada y mecanismos de degradación bien caracterizados</p>
+      </div><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Contaminantes emergentes</h3>
+        <p class="text-sm text-text-secondary">Regulación incipiente o inexistente, detección analítica reciente (LC-MS/MS de alta sensibilidad), efectos crónicos aún en investigación</p>
+      </div></div>
+    <p class="src mt-4 reveal"><a href="https://www.pops.int/TheConvention/ThePOPs" target="_blank">Convenio de Estocolmo</a> · <a href="https://www.sciencedirect.com/topics/earth-and-planetary-sciences/emerging-contaminant" target="_blank">ScienceDirect, Emerging Contaminant Overview</a></p>
+  </div>
+</div>
+
+<div class="slide slide-46" data-slide="46">
+  <div class="gradient-mesh"><div class="blob" style="width:280px;height:280px;bottom:-60px;left:-60px;background:var(--color-accent-3);opacity:.08;"></div></div>
+  <div class="content">
+    <span class="tag reveal">25 de agosto</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Síntesis: contaminación</h2>
+    <p class="text-lg text-text-secondary mt-4 reveal">La evaluación de un contaminante requiere considerar su fuente de emisión, su toxicidad dosis-dependiente, su capacidad de bioacumulación/biomagnificación y su persistencia ambiental — criterios que definen las estrategias regulatorias posteriores.</p>
+    <p class="src mt-4 reveal"><a href="https://www.ndl.ethernet.edu.et/bitstream/123456789/9104/1/Stanley%20E.Manahan_2000.pdf" target="_blank">Manahan (2000)</a></p>
+  </div>
+</div>
+
+<div class="slide slide-47" data-slide="47">
+  <div class="gradient-mesh"><div class="blob" style="width:260px;height:260px;top:-50px;left:-50px;background:var(--color-accent-2);opacity:.07;"></div></div>
+  <div class="content">
+    <span class="tag reveal">27 de agosto</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Jerarquía de mitigación ambiental</h2>
+    <p class="text-lg text-text-secondary mt-4 reveal">Marco secuencial que prioriza la acción preventiva sobre la correctiva ante impactos ambientales potenciales o existentes.</p><div class="grid grid-cols-3 gap-4 mt-6"><div class="card p-4 reveal">
+        <div class="text-2xl mb-1">🛡️</div>
+        <h3 class="font-semibold text-accent-1 text-sm">Prevención</h3>
+        <p class="text-xs text-text-secondary mt-1">Evita la generación del impacto antes de que ocurra</p>
+      </div><div class="card p-4 reveal">
+        <div class="text-2xl mb-1">⚖️</div>
+        <h3 class="font-semibold text-accent-1 text-sm">Mitigación</h3>
+        <p class="text-xs text-text-secondary mt-1">Minimiza la severidad de un impacto que no pudo evitarse</p>
+      </div><div class="card p-4 reveal">
+        <div class="text-2xl mb-1">🔧</div>
+        <h3 class="font-semibold text-accent-1 text-sm">Remediación</h3>
+        <p class="text-xs text-text-secondary mt-1">Restaura o repara un componente ambiental ya degradado</p>
+      </div></div>
+    <p class="src mt-4 reveal"><a href="https://www.thebiodiversityconsultancy.com/services/site-based/alignment-with-lender-standards-and-good-international-industry-practice/mitigation-hierarchy/" target="_blank">The Biodiversity Consultancy, Mitigation Hierarchy</a></p>
+  </div>
+</div>
+
+<div class="slide slide-48" data-slide="48">
+  <div class="gradient-mesh"><div class="blob" style="width:300px;height:300px;bottom:-70px;right:-70px;background:var(--color-accent-3);opacity:.08;"></div></div>
+  <div class="content">
+    <span class="tag reveal">27 de agosto</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Prevención: estrategias</h2>
+    <p class="text-lg text-text-secondary mt-4 reveal">Medidas activas orientadas a evitar completamente la generación de un impacto ambiental, aplicadas en las etapas más tempranas de planeación de un proyecto o proceso.</p><div class="grid grid-cols-2 gap-6 mt-6"><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Ejemplos</h3>
+        <p class="text-sm text-text-secondary">Sustitución de insumos peligrosos, rediseño de procesos industriales, ordenamiento territorial que evita zonas ecológicamente sensibles</p>
+      </div></div>
+    <p class="src mt-4 reveal"><a href="https://www.fauna-flora.org/wp-content/uploads/2021/02/FFI_CALM_Background_Paper_2_Managing_Impacts_FINAL_ENG.pdf" target="_blank">Fauna & Flora International, Mitigation Hierarchy</a></p>
+  </div>
+</div>
+
+<div class="slide slide-49" data-slide="49">
+  <div class="gradient-mesh"><div class="blob" style="width:280px;height:280px;top:-60px;right:-60px;background:var(--color-accent-2);opacity:.07;"></div></div>
+  <div class="content">
+    <span class="tag reveal">27 de agosto</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Caso aplicado: prevención industrial</h2>
+    <p class="text-lg text-text-secondary mt-4 reveal">La sustitución de disolventes clorados por alternativas acuosas en procesos de limpieza industrial elimina la generación de residuos peligrosos desde el origen, evitando costos posteriores de tratamiento.</p>
+    <p class="src mt-4 reveal"><a href="https://www.fauna-flora.org/wp-content/uploads/2021/02/FFI_CALM_Background_Paper_2_Managing_Impacts_FINAL_ENG.pdf" target="_blank">Fauna & Flora International, Mitigation Hierarchy</a></p>
+  </div>
+</div>
+
+<div class="slide slide-50" data-slide="50">
+  <div class="gradient-mesh"><div class="blob" style="width:280px;height:280px;bottom:-60px;left:-60px;background:var(--color-accent-3);opacity:.08;"></div></div>
+  <div class="content">
+    <span class="tag reveal">27 de agosto</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Caso aplicado: mitigación de emisiones atmosféricas</h2>
+    <p class="text-lg text-text-secondary mt-4 reveal">La instalación de sistemas de filtración de partículas (filtros HEPA, precipitadores electrostáticos) en fuentes fijas industriales reduce significativamente la concentración de material particulado emitido a la atmósfera, sin eliminar la fuente de generación.</p><div class="grid grid-cols-2 gap-6 mt-6"><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Ejemplo cuantificado</h3>
+        <p class="text-sm text-text-secondary">Sistemas de filtración de aire pueden reducir hasta en un 90% la concentración de partículas PM10 y PM2.5 en flujos de emisión industrial</p>
+      </div><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Limitación de la estrategia</h3>
+        <p class="text-sm text-text-secondary">No elimina el origen del contaminante; requiere mantenimiento continuo y disposición adecuada del material retenido</p>
+      </div></div>
+    <p class="src mt-4 reveal"><a href="https://www.sciencedirect.com/science/article/abs/pii/S030147972502239X" target="_blank">Trinh et al. (2025), Filtration Systems for PM Reduction</a></p>
+  </div>
+</div>
+
+<div class="slide slide-51" data-slide="51">
+  <div class="gradient-mesh"><div class="blob" style="width:260px;height:260px;top:-50px;left:-50px;background:var(--color-accent-2);opacity:.07;"></div></div>
+  <div class="content">
+    <span class="tag reveal">27 de agosto</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Mitigación: estrategias</h2>
+    <p class="text-lg text-text-secondary mt-4 reveal">Aplicada cuando el impacto no puede evitarse por completo; busca reducir su magnitud, duración o extensión mediante medidas técnicas u operativas.</p><div class="grid grid-cols-2 gap-6 mt-6"><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Ejemplos</h3>
+        <p class="text-sm text-text-secondary">Instalación de filtros de emisiones, sistemas de tratamiento de efluentes, horarios operativos que reducen exposición</p>
+      </div></div>
+    <p class="src mt-4 reveal"><a href="https://ewt.org/wp-content/uploads/2023/03/DRAFT-MITIGATION-HIERARCHY-GUIDELINE-Feb-2023.pdf" target="_blank">EWT, Best Practice Guidelines Mitigation Hierarchy (2023)</a></p>
+  </div>
+</div>
+
+<div class="slide slide-52" data-slide="52">
+  <div class="gradient-mesh"><div class="blob" style="width:300px;height:300px;bottom:-70px;right:-70px;background:var(--color-accent-3);opacity:.08;"></div></div>
+  <div class="content">
+    <span class="tag reveal">27 de agosto</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Remediación: estrategias</h2>
+    <p class="text-lg text-text-secondary mt-4 reveal">Conjunto de técnicas aplicadas a un componente ambiental ya contaminado para restaurar sus condiciones originales o reducir el riesgo asociado a su uso.</p><div class="grid grid-cols-3 gap-4 mt-6"><div class="card p-4 reveal">
+        <div class="text-2xl mb-1">🧫</div>
+        <h3 class="font-semibold text-accent-1 text-sm">Biorremediación</h3>
+        <p class="text-xs text-text-secondary mt-1">Uso de microorganismos para degradar contaminantes</p>
+      </div><div class="card p-4 reveal">
+        <div class="text-2xl mb-1">🌿</div>
+        <h3 class="font-semibold text-accent-1 text-sm">Fitorremediación</h3>
+        <p class="text-xs text-text-secondary mt-1">Uso de plantas para extraer o estabilizar contaminantes</p>
+      </div><div class="card p-4 reveal">
+        <div class="text-2xl mb-1">⚗️</div>
+        <h3 class="font-semibold text-accent-1 text-sm">Remediación química</h3>
+        <p class="text-xs text-text-secondary mt-1">Oxidación, reducción o estabilización química in situ</p>
+      </div></div>
+    <p class="src mt-4 reveal"><a href="https://www.thebiodiversityconsultancy.com/services/site-based/alignment-with-lender-standards-and-good-international-industry-practice/mitigation-hierarchy/" target="_blank">The Biodiversity Consultancy, Mitigation Hierarchy</a></p>
+  </div>
+</div>
+
+<div class="slide slide-53" data-slide="53">
+  <div class="gradient-mesh"><div class="blob" style="width:280px;height:280px;top:-60px;right:-60px;background:var(--color-accent-2);opacity:.07;"></div></div>
+  <div class="content">
+    <span class="tag reveal">27 de agosto</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Caso aplicado: fitorremediación</h2>
+    <p class="text-lg text-text-secondary mt-4 reveal">Especies como el girasol (Helianthus annuus) y el álamo (Populus spp.) se emplean para extraer metales pesados del suelo mediante fitoextracción, acumulándolos en su biomasa aérea para su posterior cosecha y disposición controlada.</p>
+    <p class="src mt-4 reveal"><a href="https://www.thebiodiversityconsultancy.com/services/site-based/alignment-with-lender-standards-and-good-international-industry-practice/mitigation-hierarchy/" target="_blank">The Biodiversity Consultancy, Mitigation Hierarchy</a></p>
+  </div>
+</div>
+
+<div class="slide slide-54" data-slide="54">
+  <div class="gradient-mesh"><div class="blob" style="width:280px;height:280px;bottom:-60px;left:-60px;background:var(--color-accent-3);opacity:.08;"></div></div>
+  <div class="content">
+    <span class="tag reveal">27 de agosto</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Aplicación de la jerarquía</h2>
+    <p class="text-lg text-text-secondary mt-4 reveal">La jerarquía se aplica de forma secuencial y no sustitutiva: se debe agotar la prevención antes de recurrir a la mitigación, y ambas antes de la remediación, dado que esta última implica mayor costo económico y ambiental.</p>
+    <p class="src mt-4 reveal"><a href="https://ewt.org/wp-content/uploads/2023/03/DRAFT-MITIGATION-HIERARCHY-GUIDELINE-Feb-2023.pdf" target="_blank">EWT, Best Practice Guidelines Mitigation Hierarchy (2023)</a></p>
+  </div>
+</div>
+
+<div class="slide slide-55" data-slide="55">
+  <div class="gradient-mesh"><div class="blob" style="width:260px;height:260px;top:-50px;left:-50px;background:var(--color-accent-2);opacity:.07;"></div></div>
+  <div class="content">
+    <span class="tag reveal">1 de septiembre</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Marco legal ambiental mexicano</h2>
+    <div class="grid grid-cols-2 gap-6 mt-6"><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">LGEEPA</h3>
+        <p class="text-sm text-text-secondary">Ley General del Equilibrio Ecológico y la Protección al Ambiente: legislación ambiental más importante del país; regula emisiones a aire, agua y suelo</p>
+      </div><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">LGPGIR</h3>
+        <p class="text-sm text-text-secondary">Ley General para la Prevención y Gestión Integral de los Residuos: gestión de residuos peligrosos, urbanos y de manejo especial</p>
+      </div></div>
+    <p class="src mt-4 reveal"><a href="https://consultorescmc.com/normativas-ambientales-en-mexico/" target="_blank">Consultores CMC, Normativas Ambientales en México</a> · <a href="https://www.csrconsulting.com.mx/ecologia/normas-ambientales-mas-importantes-de-mexico/" target="_blank">CSR Consulting, Normas Ambientales</a></p>
+  </div>
+</div>
+
+<div class="slide slide-56" data-slide="56">
+  <div class="gradient-mesh"><div class="blob" style="width:300px;height:300px;bottom:-70px;right:-70px;background:var(--color-accent-3);opacity:.08;"></div></div>
+  <div class="content">
+    <span class="tag reveal">1 de septiembre</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Pirámide jerárquica del sistema jurídico mexicano</h2>
+    <p class="text-lg text-text-secondary mt-4 reveal">El sistema jurídico mexicano se estructura conforme a la pirámide kelseniana, en la que cada norma deriva su validez de una norma jurídica de rango superior.</p><div class="grid grid-cols-3 gap-4 mt-6"><div class="card p-4 reveal">
+        <div class="text-2xl mb-1">🏛️</div>
+        <h3 class="font-semibold text-accent-1 text-sm">Constitución</h3>
+        <p class="text-xs text-text-secondary mt-1">Ley suprema; ninguna norma puede contradecirla (Art. 133 constitucional)</p>
+      </div><div class="card p-4 reveal">
+        <div class="text-2xl mb-1">🌍</div>
+        <h3 class="font-semibold text-accent-1 text-sm">Tratados internacionales</h3>
+        <p class="text-xs text-text-secondary mt-1">Rango cuasi-constitucional desde la reforma de 2011; por encima de leyes federales</p>
+      </div><div class="card p-4 reveal">
+        <div class="text-2xl mb-1">📜</div>
+        <h3 class="font-semibold text-accent-1 text-sm">Leyes federales y generales</h3>
+        <p class="text-xs text-text-secondary mt-1">LGEEPA, LGPGIR y demás leyes emanadas del Congreso de la Unión</p>
+      </div></div>
+    <p class="src mt-4 reveal"><a href="https://mexico.unir.net/noticias/derecho/jerarquia-normativa/" target="_blank">UNIR México, Jerarquía Normativa</a> · <a href="https://a21.com.mx/opinion/2024/09/16/la-jerarquia-normativa-en-el-sistema-juridico-mexicano-parte-1/" target="_blank">A21, Jerarquía Normativa en el Sistema Jurídico Mexicano</a></p>
+  </div>
+</div>
+
+<div class="slide slide-57" data-slide="57">
+  <div class="gradient-mesh"><div class="blob" style="width:280px;height:280px;top:-60px;right:-60px;background:var(--color-accent-2);opacity:.07;"></div></div>
+  <div class="content">
+    <span class="tag reveal">1 de septiembre</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Nivel base: reglamentos y NOMs</h2>
+    <p class="text-lg text-text-secondary mt-4 reveal">En la base de la pirámide normativa se ubican los instrumentos administrativos que operacionalizan las leyes de rango superior, incluyendo las Normas Oficiales Mexicanas que rigen la materia ambiental.</p><div class="grid grid-cols-2 gap-6 mt-6"><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Reglamentos</h3>
+        <p class="text-sm text-text-secondary">Detallan la aplicación práctica de una ley específica, emitidos por el Poder Ejecutivo</p>
+      </div><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Normas Oficiales Mexicanas (NOM)</h3>
+        <p class="text-sm text-text-secondary">Instrumentos técnicos de cumplimiento obligatorio que establecen límites, especificaciones y procedimientos concretos</p>
+      </div></div>
+    <p class="src mt-4 reveal"><a href="https://archivos.juridicas.unam.mx/www/bjv/libros/9/4056/11.pdf" target="_blank">Archivo Jurídicas UNAM, El artículo 133 y la jerarquía jurídica</a></p>
+  </div>
+</div>
+
+<div class="slide slide-58" data-slide="58">
+  <div class="gradient-mesh"><div class="blob" style="width:280px;height:280px;bottom:-60px;left:-60px;background:var(--color-accent-3);opacity:.08;"></div></div>
+  <div class="content">
+    <span class="tag reveal">1 de septiembre</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Principios de la LGEEPA</h2>
+    <p class="text-lg text-text-secondary mt-4 reveal">La LGEEPA establece los instrumentos de política ambiental que rigen la gestión ambiental en México.</p><div class="grid grid-cols-3 gap-4 mt-6"><div class="card p-4 reveal">
+        <div class="text-2xl mb-1">📋</div>
+        <h3 class="font-semibold text-accent-1 text-sm">Evaluación de impacto ambiental</h3>
+        <p class="text-xs text-text-secondary mt-1">Requisito previo para proyectos con potencial afectación</p>
+      </div><div class="card p-4 reveal">
+        <div class="text-2xl mb-1">🗺️</div>
+        <h3 class="font-semibold text-accent-1 text-sm">Ordenamiento ecológico</h3>
+        <p class="text-xs text-text-secondary mt-1">Planeación territorial basada en aptitud ambiental</p>
+      </div><div class="card p-4 reveal">
+        <div class="text-2xl mb-1">📊</div>
+        <h3 class="font-semibold text-accent-1 text-sm">Normas Oficiales Mexicanas</h3>
+        <p class="text-xs text-text-secondary mt-1">Instrumentos técnicos de cumplimiento obligatorio</p>
+      </div></div>
+    <p class="src mt-4 reveal"><a href="https://consultorescmc.com/normativas-ambientales-en-mexico/" target="_blank">Consultores CMC, Normativas Ambientales en México</a></p>
+  </div>
+</div>
+
+<div class="slide slide-59" data-slide="59">
+  <div class="gradient-mesh"><div class="blob" style="width:260px;height:260px;top:-50px;left:-50px;background:var(--color-accent-2);opacity:.07;"></div></div>
+  <div class="content">
+    <span class="tag reveal">1 de septiembre</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Autoridades ambientales mexicanas</h2>
+    <div class="grid grid-cols-3 gap-4 mt-6"><div class="card p-4 reveal">
+        <div class="text-2xl mb-1">🏛️</div>
+        <h3 class="font-semibold text-accent-1 text-sm">SEMARNAT</h3>
+        <p class="text-xs text-text-secondary mt-1">Secretaría de Medio Ambiente y Recursos Naturales; rectora de la política ambiental federal</p>
+      </div><div class="card p-4 reveal">
+        <div class="text-2xl mb-1">💧</div>
+        <h3 class="font-semibold text-accent-1 text-sm">CONAGUA</h3>
+        <p class="text-xs text-text-secondary mt-1">Comisión Nacional del Agua; gestión y normatividad del recurso hídrico</p>
+      </div><div class="card p-4 reveal">
+        <div class="text-2xl mb-1">⚖️</div>
+        <h3 class="font-semibold text-accent-1 text-sm">PROFEPA</h3>
+        <p class="text-xs text-text-secondary mt-1">Procuraduría Federal de Protección al Ambiente; vigilancia y aplicación de la ley</p>
+      </div></div>
+    <p class="src mt-4 reveal"><a href="https://consultorescmc.com/normativas-ambientales-en-mexico/" target="_blank">Consultores CMC, Normativas Ambientales en México</a></p>
+  </div>
+</div>
+
+<div class="slide slide-60" data-slide="60">
+  <div class="gradient-mesh"><div class="blob" style="width:300px;height:300px;bottom:-70px;right:-70px;background:var(--color-accent-3);opacity:.08;"></div></div>
+  <div class="content">
+    <span class="tag reveal">1 de septiembre</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Normas Oficiales Mexicanas: agua y aire</h2>
+    <div class="grid grid-cols-2 gap-6 mt-6"><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">NOM-001-SEMARNAT-2021</h3>
+        <p class="text-sm text-text-secondary">Límites permisibles de contaminantes en descargas de aguas residuales a cuerpos receptores de la nación</p>
+      </div><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">NOM-085-SEMARNAT-2011</h3>
+        <p class="text-sm text-text-secondary">Niveles máximos permisibles de emisión de contaminación atmosférica en equipos de combustión</p>
+      </div></div>
+    <p class="src mt-4 reveal"><a href="https://www.csrconsulting.com.mx/ecologia/normas-ambientales-mas-importantes-de-mexico/" target="_blank">CSR Consulting, Normas Ambientales de México</a> · <a href="https://marketb2b.mx/Portal/Blog/139/normas-ecologicas" target="_blank">Market B2B, Normas Ecológicas</a></p>
+  </div>
+</div>
+
+<div class="slide slide-61" data-slide="61">
+  <div class="gradient-mesh"><div class="blob" style="width:280px;height:280px;top:-60px;right:-60px;background:var(--color-accent-2);opacity:.07;"></div></div>
+  <div class="content">
+    <span class="tag reveal">1 de septiembre</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Normas Oficiales Mexicanas: suelo y residuos</h2>
+    <div class="grid grid-cols-2 gap-6 mt-6"><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">NOM-021-SEMARNAT-2000</h3>
+        <p class="text-sm text-text-secondary">Especificaciones de fertilidad, salinidad y clasificación de suelos</p>
+      </div><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">NOM-138-SEMARNAT/SSA1</h3>
+        <p class="text-sm text-text-secondary">Procedimientos para la remediación de sitios contaminados con hidrocarburos y metales pesados</p>
+      </div></div>
+    <p class="src mt-4 reveal"><a href="https://www.csrconsulting.com.mx/ecologia/normas-ambientales-mas-importantes-de-mexico/" target="_blank">CSR Consulting, Normas Ambientales de México</a> · <a href="https://biblioteca.semarnat.gob.mx/janium/Documentos/Ciga/agenda/PP03/ProntuarioNormas.pdf" target="_blank">SEMARNAT, Prontuario de Normas Oficiales Mexicanas</a></p>
+  </div>
+</div>
+
+<div class="slide slide-62" data-slide="62">
+  <div class="gradient-mesh"><div class="blob" style="width:280px;height:280px;bottom:-60px;left:-60px;background:var(--color-accent-3);opacity:.08;"></div></div>
+  <div class="content">
+    <span class="tag reveal">1 de septiembre</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Normas Oficiales Mexicanas complementarias</h2>
+    <div class="grid grid-cols-2 gap-6 mt-6"><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">NOM-059-SEMARNAT</h3>
+        <p class="text-sm text-text-secondary">Protección de especies de flora y fauna silvestre en riesgo de extinción</p>
+      </div><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">NOM-081-SEMARNAT</h3>
+        <p class="text-sm text-text-secondary">Límites de emisión de ruido de fuentes fijas industriales y comerciales</p>
+      </div></div>
+    <p class="src mt-4 reveal"><a href="https://marketb2b.mx/Portal/Blog/139/normas-ecologicas" target="_blank">Market B2B, Normas Ecológicas</a></p>
+  </div>
+</div>
+
+<div class="slide slide-63" data-slide="63">
+  <div class="gradient-mesh"><div class="blob" style="width:260px;height:260px;top:-50px;left:-50px;background:var(--color-accent-2);opacity:.07;"></div></div>
+  <div class="content">
+    <span class="tag reveal">1 de septiembre</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Otras leyes complementarias</h2>
+    <p class="text-lg text-text-secondary mt-4 reveal">El marco jurídico ambiental mexicano se complementa con legislación específica que aborda dimensiones no cubiertas directamente por la LGEEPA.</p><div class="grid grid-cols-2 gap-6 mt-6"><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Ley General de Cambio Climático</h3>
+        <p class="text-sm text-text-secondary">Establece la política nacional de mitigación y adaptación al cambio climático</p>
+      </div><div class="card p-6 reveal">
+        <h3 class="font-semibold text-accent-1 mb-1">Ley de Aguas Nacionales</h3>
+        <p class="text-sm text-text-secondary">Regula la explotación, uso y aprovechamiento de aguas superficiales y subterráneas</p>
+      </div></div>
+    <p class="src mt-4 reveal"><a href="https://consultorescmc.com/normativas-ambientales-en-mexico/" target="_blank">Consultores CMC, Normativas Ambientales en México</a></p>
+  </div>
+</div>
+
+<div class="slide slide-64" data-slide="64">
+  <div class="gradient-mesh"><div class="blob" style="width:300px;height:300px;bottom:-70px;right:-70px;background:var(--color-accent-3);opacity:.08;"></div></div>
+  <div class="content">
+    <span class="tag reveal">3 de septiembre</span>
+    <h2 class="font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-bold mt-3 reveal">Integración del bloque 1</h2>
+    <p class="text-lg text-text-secondary mt-4 reveal">Síntesis: ecosistemas y sus componentes → flujo de energía y ciclos biogeoquímicos → contaminación, toxicidad y persistencia → jerarquía de mitigación → normatividad mexicana.</p><p class="text-lg text-text-secondary mt-4 reveal">Estos cinco ejes conceptuales constituyen el fundamento teórico sobre el cual se construirán los bloques temáticos de agua, suelo y aire del semestre.</p>
+    <p class="src mt-4 reveal"><a href="https://www.ndl.ethernet.edu.et/bitstream/123456789/9104/1/Stanley%20E.Manahan_2000.pdf" target="_blank">Manahan (2000)</a></p>
+  </div>
+</div>
+
+<div class="slide slide-65" data-slide="65">
+  <div class="gradient-mesh">
+    <div class="blob" style="width:400px;height:400px;top:-100px;left:-100px;background:var(--color-accent-2);opacity:.1;"></div>
+    <div class="blob" style="width:280px;height:280px;bottom:-70px;right:-70px;background:var(--color-accent-3);opacity:.08;"></div>
+  </div>
+  <div class="content text-center">
+    <span class="tag reveal">3 de septiembre</span>
+    <div class="text-[80px] mb-4 mt-3 reveal">🔬</div>
+    <h2 class="font-display text-[clamp(1.7rem,3.5vw,2.4rem)] font-bold text-accent-1 reveal">Próximo bloque</h2>
+    <p class="text-lg text-text-secondary mt-3 reveal">8 de septiembre: Contaminación del agua — características fisicoquímicas y calidad del agua</p>
+    <p class="cite mt-6 reveal">Bibliografía base: <a href="https://www.ndl.ethernet.edu.et/bitstream/123456789/9104/1/Stanley%20E.Manahan_2000.pdf" target="_blank">Manahan, S.E. Environmental Chemistry</a> (9ª–11ª ed.)</p>
+  </div>
+</div>
+
+</div>
+<div class="nav-controls">
+  <button class="nav-btn" onclick="changeSlide(-1)">&#8249;</button>
+  <div class="slide-dots" id="dots"></div>
+  <button class="nav-btn" onclick="changeSlide(1)">&#8250;</button>
+  <span class="slide-counter" id="counter">1 / 65</span>
+</div>
+<script>
+let current=1;
+const total=document.querySelectorAll('.slide').length;
+const dotsContainer=document.getElementById('dots');
+const counter=document.getElementById('counter');
+for(let i=1;i<=total;i++){const dot=document.createElement('div');dot.className='dot'+(i===1?' active':'');dot.onclick=()=>goToSlide(i);dotsContainer.appendChild(dot);}
+function goToSlide(n){const prev=document.querySelector('.slide.active');const next=document.querySelector(`.slide[data-slide="${n}"]`);if(prev)prev.classList.remove('active');if(next){next.classList.add('active');animateSlide(next);}current=n;updateNav();}
+function changeSlide(dir){let next=current+dir;if(next<1)next=total;if(next>total)next=1;goToSlide(next);}
+function updateNav(){document.querySelectorAll('.dot').forEach((d,i)=>{d.classList.toggle('active',i+1===current);});counter.textContent=current+' / '+total;}
+document.addEventListener('keydown',(e)=>{if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();changeSlide(1);}if(e.key==='ArrowLeft'){e.preventDefault();changeSlide(-1);}});
+let touchStartX=0;
+document.addEventListener('touchstart',(e)=>{touchStartX=e.touches[0].clientX;});
+document.addEventListener('touchend',(e)=>{const diff=touchStartX-e.changedTouches[0].clientX;if(Math.abs(diff)>50)changeSlide(diff>0?1:-1);});
+function animateSlide(slide){slide.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transition='none';el.style.opacity='0';el.style.transform='translateY(20px)';el.offsetHeight;const delay=i*0.06;el.style.transition=`opacity 0.35s ease ${delay}s, transform 0.35s ease ${delay}s`;el.style.opacity='1';el.style.transform='translateY(0px)';});}
+document.addEventListener('mousemove',(e)=>{const spotlight=document.querySelector('.mouse-spotlight');if(spotlight){const rgb=getComputedStyle(document.documentElement).getPropertyValue('--glow-color-rgb').trim()||'194,65,12';spotlight.style.background=`radial-gradient(600px circle at ${e.clientX}px ${e.clientY}px, rgba(${rgb}, 0.05), transparent 40%)`;}});
+try{animateSlide(document.querySelector('.slide.active'));}catch(e){console.warn('init anim error',e);}
+</script>
+</body>
+</html>
